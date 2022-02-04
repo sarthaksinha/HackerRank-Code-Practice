@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+//Problem statement - Take the arrays as an input and treat it as a 2D array and get the value for the row and column queried
+public class Solution {
+
+    public static void main(String[] args) {
+   
+    Scanner scan=new Scanner(System.in);
+
+    int totalInput=scan.nextInt(); //Total number of array list to be defined
+
+    ArrayList<ArrayList<Integer>> outerlist=new ArrayList<>(); //creating a double array list
+
+    for(int i=0;i<totalInput;i++)
+    {
+     int size=scan.nextInt(); //size of each array to be created
+     
+     ArrayList<Integer> list=new ArrayList(); 
+
+     for(int j=0;j<size;j++)
+       {
+          int item=scan.nextInt();
+          list.add(item);
+       }
+      outerlist.add(list); // Adding each array to a main list
+   }
+
+    int print=scan.nextInt();
+    for(int k=0;k<print;k++)
+    {
+      int row=scan.nextInt(); //taking the row number to be queried
+      int col=scan.nextInt(); //taking the column number to be queried
+      try
+       {
+       System.out.println(outerlist.get(row-1).get(col-1)); 
+       }
+      catch(Exception e)
+      {
+      System.out.println("ERROR!");
+      }
+    }
+    scan.close();
+    }
+}
