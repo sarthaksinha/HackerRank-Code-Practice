@@ -1,0 +1,36 @@
+import java.io.*;
+import java.util.*;
+//Given a list L, perform queries on the list for Insert and Delete
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        List L = new ArrayList(); 
+        for(int i = 0; i < N; i++)
+            L.add(i,sc.nextInt()); //Taking the input for arraylist
+        int Q = sc.nextInt(); // Number of queries to be made
+        sc.nextLine();
+        for(int i = 0; i < Q; i++) {
+            String s1 = sc.nextLine(); // Take the query operation input like "Insert" or "Delete"
+            String s2 = sc.nextLine(); // If Insert, then give the input with index and value separated by a space, else if Delete then give the index input
+            if(s1.equalsIgnoreCase("Insert")){
+                String arr[] = s2.split(" "); // Splitting the input in s2 for Insert
+                int x = Integer.parseInt(arr[0]);
+                int y = Integer.parseInt(arr[1]);
+                L.add(x,y); // Adding the value in arraylist at the given index
+            }
+            if(s1.equalsIgnoreCase("Delete")){
+                int x = Integer.parseInt(s2);
+                L.remove(x); // Remove the index given in s2
+            }
+        }
+        Iterator itr = L.iterator(); //Iterator to print the arraylist
+        while(itr.hasNext()){
+            int x = (int)itr.next(); //Casting to int
+            System.out.print(x + " ");
+        }
+        sc.close();
+    }
+}
