@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+//Problem statement - Print total number of negative subarrays
+public class Solution {
+
+    public static void main(String[] args) {
+         Scanner scan=new Scanner(System.in);
+        int n = scan.nextInt();
+        int count = 0;
+        int a[] = new int[n];
+        for(int i =0; i<n; i++){
+            a[i] = scan.nextInt(); //take the input arrays
+        }
+    for(int j=0;j<n;j++){
+        int sum=0;
+        for(int k=j;k<n;k++){
+            sum=a[k]+sum; //traversing the array and storing the sum of each index
+            if(sum<0){
+                count++; //increasing the counter if sum of subarrays is negative
+            }
+        }
+    }
+     System.out.println(count);
+    }
+}
